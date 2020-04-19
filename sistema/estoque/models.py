@@ -31,7 +31,7 @@ class Produto(models.Model):
     descProduto = models.TextField(verbose_name="Descrição do Produto")
     # Existe uma função do python que retorna o valor local. Locate.
     precoProduto = models.DecimalField(
-        verbose_name="Preço Unitario", max_digits=4, decimal_places=2)
+        verbose_name="Preço Unitario", max_digits=8, decimal_places=2)
     categoriaProduto = models.ManyToManyField(
         Categoria, verbose_name="Categoria")
     marcaProduto = models.ForeignKey(
