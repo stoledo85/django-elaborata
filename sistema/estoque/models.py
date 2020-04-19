@@ -9,6 +9,9 @@ class Marca(models.Model):
 
     nomeMarca = models.CharField(verbose_name="Nome da Marca", max_length=15)
 
+    def __str__(self):
+        return self.nomeMarca
+
 
 class Categoria(models.Model):
 
@@ -16,6 +19,9 @@ class Categoria(models.Model):
         verbose_name="Nome da Categoria", max_length=15)
     # TODO Implementar a lista de produtos relacionada a esta marca.
     produtoCategoria = None
+
+    def __str__(self):
+        return self.nomeCategoria
 
 
 class Produto(models.Model):
@@ -31,6 +37,10 @@ class Produto(models.Model):
     marcaProduto = models.ForeignKey(
         Marca, verbose_name="Marca", on_delete=models.PROTECT)
 
-class Estoque(models.Model):
-    codProduto = models.ForeignKey(Produto,verbose_name="Codigo Produto", on_delete=models.CASCADE)
+    def __str__(self):
+        return self.nomeProduto 
     
+
+class Estoque(models.Model):
+    codProduto = models.ForeignKey(
+        Produto, verbose_name="Codigo Produto", on_delete=models.CASCADE)
