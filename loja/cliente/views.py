@@ -4,15 +4,15 @@ from django.http import HttpResponse
 from datetime import datetime
 
 def index(request):
-    html = """<html><head></head>
-    <body><h3>Este é o primeiro texto em Django.</h3>
-             </body>
-             </html>"""
-    return HttpResponse(html)
+    return render(request, "cliente/index.html",{})
 
 
 def hora(request):
-    tempoHtml = """<html><head></head><body><h3>%s</h3>
-             </body>
-             </html>""" % datetime.now()
-    return HttpResponse(tempoHtml)
+    context = {"hora":datetime.now()}
+    
+    return render(request, "cliente/hora.html", context)
+
+def pessoa(request):
+    pessoa = {"nome": 'Sander', "nascimento":'10/06/1985', "email":'sander@algumacoisa.com.br',"telefone":'123456789'}
+    
+    return render(request, "cliente/pessoa.html", pessoa)
