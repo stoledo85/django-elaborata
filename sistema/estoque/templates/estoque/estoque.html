@@ -1,9 +1,28 @@
- <!DOCTYPE html>
-<html>
-<body>
-
-<h1>My First Heading</h1>
-<p>My first paragraph.</p>
-
-</body>
-</html> 
+{% extends 'estoque/base.html' %}
+{# Esta é a minha primeira pagina. E tudo o que seria exibido na home. #}
+{% block conteudo %}
+     <div class="table-responsive text-nowrap">
+      <table id="dt-vertical-scroll" class="table table-sm" cellspacing="0" width="100%">
+          <thead>
+            <tr>
+              <th scope="col">Produto</th>
+              <th scope="col">Descrição</th>
+              <th scope="col">Categoria</th>
+              <th scope="col">Marca</th>
+              <th scope="col">Preço</th>
+            </tr>
+          </thead>
+        {% for Produto in produtos %}
+          <tbody>
+            <tr scope="row">
+              <td>{{Produto.nomeProduto}}</td>
+              <td>{{Produto.descProduto}}</td>
+              <td>{{Produto.categoriaProduto}}</td>
+              <td>{{Produto.marcaProduto}}</td>
+              <td><strong>R$ {{Produto.precoProduto}}</strong></td>
+            </tr>
+          </tbody>
+        {% endfor %}
+        </table>
+    </div>
+{% endblock %}

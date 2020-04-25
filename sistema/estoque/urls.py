@@ -5,4 +5,6 @@ app_name = "estoque"
 
 urlpatterns = [
     path("", views.index, name="index"),
+    path('hora/', views.hora, name="hora"),
+    path('listagem/', views.listagem, name='listagem')
 ]

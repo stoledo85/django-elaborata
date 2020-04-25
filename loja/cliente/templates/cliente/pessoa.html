@@ -1,8 +1,6 @@
-<html>
-    <head>
-    </head>
-    <body>
-        <table>
+{% extends 'cliente/base.html' %}
+{% block conteudo %}
+<table class="table">
             <tr>
                 <td>Nome:</td>
                 <td>{{nome}}</td>
@@ -22,5 +20,4 @@
         
 
         </table>
-    </body>
-</html>
+{% endblock conteudo %}
