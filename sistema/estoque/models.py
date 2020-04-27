@@ -26,20 +26,16 @@ class Categoria(models.Model):
 
 class Produto(models.Model):
 
-    nomeProduto = models.CharField(
-        verbose_name="Nome do Produto", max_length=20)
+    nomeProduto = models.CharField(verbose_name="Nome do Produto", max_length=20)
     descProduto = models.TextField(verbose_name="Descrição do Produto")
     # Existe uma função do python que retorna o valor local. Locate.
-    precoProduto = models.DecimalField(
-        verbose_name="Preço Unitario", max_digits=8, decimal_places=2)
+    precoProduto = models.DecimalField(verbose_name="Preço Unitario", max_digits=8, decimal_places=2)
     categoriaProduto = models.ForeignKey(Categoria, verbose_name="Categoria", on_delete=models.CASCADE)
-    marcaProduto = models.ForeignKey(
-        Marca, verbose_name="Marca", on_delete=models.PROTECT)
+    marcaProduto = models.ForeignKey(Marca, verbose_name="Marca", on_delete=models.PROTECT)
 
     def __str__(self):
         return self.nomeProduto 
     
 
 class Estoque(models.Model):
-    codProduto = models.ForeignKey(
-        Produto, verbose_name="Codigo Produto", on_delete=models.CASCADE)
+    codProduto = models.ForeignKey(Produto, verbose_name="Codigo Produto", on_delete=models.CASCADE)
