@@ -7,6 +7,8 @@
   <meta charset="utf-8">
   <meta name="author" content="Sander Toledo">
 <!-- Font Awesome -->
+{% block cs %}
+{% endblock cs %}
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
   <!-- Bootstrap core CSS -->
   <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
@@ -15,6 +17,8 @@
   <!-- Your custom styles (optional) -->
   <link href="{% static 'css/style.css' %}" rel="stylesheet">
   <title>Sistema de Estoque</title>
+{% block js %}
+{% endblock js %}
 </head>
 <body>
 {# Conteudo do Site abaixo #}
@@ -31,13 +35,10 @@
 
   <!-- Collapsible content -->
   <div class="collapse navbar-collapse" id="basicExampleNav">
-
     <!-- Links -->
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="{% url 'estoque:index' %}">Home
-          <span class="sr-only">(current)</span>
-        </a>
+        <a class="nav-link" href="{% url 'estoque:index' %}">Home<span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="{% url 'estoque:listagem' %}">Lista de Produtos</a>
@@ -50,8 +51,12 @@
         <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
           aria-haspopup="true" aria-expanded="false">Estoque</a>
         <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="#">Cadastro de Produtos</a>
-          <a class="dropdown-item" href="#">Movimentação</a>        
+          <a class="dropdown-item" href="{% url 'estoque:produto' %}">Cadastro de Produtos</a>
+          <a class="dropdown-item" href="{% url 'estoque:categoria' %}">Cadastro de Categoria</a>
+          <a class="dropdown-item" href="{% url 'estoque:marca' %}">Cadastro de Marca</a>
+          <a class="dropdown-item" href="#">Movimentação</a>
+        <!--submenu -->
+            
         </div>
       </li>
 

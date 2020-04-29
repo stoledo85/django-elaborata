@@ -1,7 +1,24 @@
 {% extends 'estoque/base.html' %}
 {# Esta é a minha primeira pagina. E tudo o que seria exibido na home. #}
+{{% block js %}
+ 
+{% endblock js %}
+
 {% block conteudo %}
-    <div class="table-responsive text-nowrap">
+  <script type="text/javascript">
+  <!--
+    $(document).ready(function(){
+      $("#tableSearch").on("keyup", function() {
+        var value = $(this).val().toLowerCase();
+        $("#myTable tr").filter(function() {
+          $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+      });
+    });
+  -->
+  </script>
+    <div class="table-responsive table-hover text-nowrap">
+        <input class="form-control mb-4" id="tableSearch" type="text" placeholder="Pesquisar">
       <table id="dt-vertical-scroll" class="table table-sm" cellspacing="0" width="100%">
           <thead>
             <tr>
@@ -13,13 +30,13 @@
             </tr>
           </thead>
         {% for Produto in produtos %}
-          <tbody>
+          <tbody id="myTable">
             <tr scope="row">
               <td>{{Produto.nomeProduto}}</td>
               <td>{{Produto.descProduto}}</td>
               <td>{{Produto.categoriaProduto}}</td>
               <td>{{Produto.marcaProduto}}</td>
-              <td><strong>R$ {{Produto.precoProduto}}</strong></td>
+              <td>R$ {{Produto.precoProduto}}</td>
             </tr>
           </tbody>
         {% endfor %}
