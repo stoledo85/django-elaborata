@@ -1,5 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from .forms import CidadeForm
+from .forms import EnderecoForm
+from .forms import ClienteForm
 # Create your views here.
 from datetime import datetime
 
@@ -16,3 +19,18 @@ def pessoa(request):
     pessoa = {"nome": 'Sander', "nascimento":'10/06/1985', "email":'sander@algumacoisa.com.br',"telefone":'123456789'}
     
     return render(request, "cliente/pessoa.html", pessoa)
+
+def cidadeView(request):
+    form = CidadeForm()
+    context = {"form":form}
+    return render(request, "cliente/cidade.html", context)
+
+def enderecoView(request):
+    form = EnderecoForm()
+    context = {"form":form}
+    return render(request, "cliente/endereco.html", context)
+
+def clienteView(request):
+    form = ClienteForm()
+    context = {"form":form}
+    return render(request, "cliente/cliente.html", context)

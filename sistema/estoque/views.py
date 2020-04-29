@@ -8,9 +8,8 @@ def index(request):
     return render(request, "estoque/index.html",{})
 
 def hora(request):
-    while 1:
-        context = {"hora":datetime.now()}
-    return render(request, "cliente/hora.html", context)
+    context = {"hora":datetime.now()}
+    return render(request, "estoque/hora.html", context)
 
 
 def listagem(request):
