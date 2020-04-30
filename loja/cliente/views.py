@@ -21,10 +21,16 @@ def pessoa(request):
     return render(request, "cliente/pessoa.html", pessoa)
 
 def cidadeView(request):
-    form = CidadeForm()
-    context = {"form":form}
-    return render(request, "cliente/cidade.html", context)
+    
+    if request.method == "GET":
+        form = CidadeForm()
+        context = {"form":form}
+        return render(request, "cliente/cidade.html", context)
+    elif request.method == "POST":
+        pass
 
+
+    
 def enderecoView(request):
     form = EnderecoForm()
     context = {"form":form}

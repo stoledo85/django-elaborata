@@ -39,3 +39,6 @@ class Produto(models.Model):
 
 class Estoque(models.Model):
     codProduto = models.ForeignKey(Produto, verbose_name="Codigo Produto", on_delete=models.CASCADE)
+    dataMovimentacao = models.DateTime(verbose_name="Data da Movimentação")
+    quantidade = models.IntegerField(verbose_name="Quantidade")
+    tipo
