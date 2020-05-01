@@ -1,0 +1,27 @@
+{% extends 'cliente/base.html' %}
+{% block conteudo %}
+    <div class="table-responsive table-hover text-nowrap">
+        <table id="dt-vertical-scroll" class="table table-sm" cellspacing="0" width="100%">
+            <thead>
+                <tr>
+                    <th scope="col">Nome</th>
+                    <th scope="col">CPF</th>
+                    <th scope="col">Data de Nascimento</th>
+                    <th scope="col">Idade</th>
+                    <th scope="col">Endereço</th>
+                </tr>
+            </thead>
+        {% for Cliente in clientes %}
+        <tbody id="myTable">
+            <tr scope="row">
+                <td>{{Cliente.nomeCliente}}</td>
+                <td>{{Cliente.numeroCpf}}</td>
+                <td>{{Cliente.dataNascimento}}</td>
+                <td>{{Cliente.idade}}</td>
+                <td>{{Cliente.codigoEndereco}}</td>
+            </tr>
+        </tbody>
+        {% endfor %}
+        </table>
+    </div>
+{% endblock conteudo %}

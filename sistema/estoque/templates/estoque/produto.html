@@ -1,8 +1,14 @@
 {% extends 'estoque/base.html' %}
 {% block conteudo %}
-    <form method="post" class="form">{% csrf_token %}
+    {% if erro %}
+			<div class="alert alert-danger">{{ erro }}</div>
+		{% endif %}
+		{% if sucesso %}
+			<div class="alert alert-success">{{ sucesso }}</div>
+        {% endif %}
+    <form action="{% url 'estoque:produto' %}" method="post">
         {{form.as_p}}
-        <input type="submit" value="Salvar">
+        <input type="submit" class="btn btn-primary" value="Salvar"/>
     </form>
 {% endblock conteudo %}
 

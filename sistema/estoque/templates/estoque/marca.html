@@ -1,4 +1,12 @@
 {% extends 'estoque/base.html' %}
 {% block conteudo %}
-    {{form.as_p}}
-{% endblock conteudo %}
+    {% if erro %}
+			<div class="alert alert-danger">{{ erro }}</div>
+		{% endif %}
+		{% if sucesso %}
+			<div class="alert alert-success">{{ sucesso }}</div>
+        {% endif %}
+    <form action="{% url 'estoque:marca' %}" method="post">
+        {{form.as_p}}
+        <input type="submit" class="btn btn-primary" value="Salvar"/>
+    </form>{% endblock conteudo %}
