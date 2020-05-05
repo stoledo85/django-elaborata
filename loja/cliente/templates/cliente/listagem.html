@@ -1,6 +1,14 @@
 {% extends 'cliente/base.html' %}
 {% block conteudo %}
     <div class="table-responsive table-hover text-nowrap">
+        <form action="" method="post" class="form form-inline">
+			{% csrf_token %}
+			{{ form }}
+			<input type="submit" value="Vai" />
+		</form>
+
+
+
         <table id="dt-vertical-scroll" class="table table-sm" cellspacing="0" width="100%">
             <thead>
                 <tr>

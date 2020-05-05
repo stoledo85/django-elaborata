@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from .forms import CidadeForm
 from .forms import EnderecoForm
 from .forms import ClienteForm
+from .forms import BuscaClienteForm
 # Create your views here.
 from datetime import datetime
 from .models import Cliente
@@ -16,11 +17,6 @@ def hora(request):
     context = {"hora": datetime.now()}
 
     return render(request, "cliente/hora.html", context)
-
-
-def listagem(request):
-    clientes = Cliente.objects.all()
-    return render(request, "cliente/listagem.html", {'clientes': clientes})
 
 
 def cidadeView(request):
@@ -73,5 +69,20 @@ def clienteView(request):
     return render(request, "cliente/cliente.html", context)
 
 
-def clienteBuscaView(request):
-    pass
+def listagem(request):
+    clientes = []
+    #Pesquisar Queryset
+    form = BuscaClienteForm()
+    if request.method == "POST":
+        resultado = BuscaClienteForm(request.POST)
+        if resultado.is_valid():
+            nome = resultado.cleaned_data["nomeCliente"]
+            dataNascimento = resultado.cleaned_data["dataNascimento"]
+            clientes = Cliente.objects.filter(nomeCliente=nome)
+        else:
+            pass
+    else:
+        clientes = Cliente.objects.all()
+    
+    contexto = {'clientes': clientes, "form":form}
+    return render(request, "cliente/listagem.html", contexto )

@@ -1,7 +1,8 @@
+from django import forms
 from django.forms import ModelForm
-from .models import Cidade
-from .models import Endereco
-from .models import Cliente
+
+from .models import Cidade, Cliente, Endereco
+
 
 class CidadeForm(ModelForm):
     class Meta:
@@ -39,3 +40,6 @@ class ClienteForm(ModelForm):
         model = Cliente
         fields = ['nomeCliente', 'numeroCpf', 'dataNascimento', 'idade', 'codigoEndereco']
         
+class BuscaClienteForm(forms.Form):
+    nomeCliente = forms.CharField( max_length=45)
+    dataNascimento = forms.CharField(max_length=10)
