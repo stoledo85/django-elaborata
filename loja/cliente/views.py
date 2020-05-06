@@ -1,11 +1,11 @@
-from django.shortcuts import render
-from django.http import HttpResponse
-from .forms import CidadeForm
-from .forms import EnderecoForm
-from .forms import ClienteForm
-from .forms import BuscaClienteForm
 # Create your views here.
 from datetime import datetime
+
+from django.http import HttpResponse
+from django.shortcuts import render
+
+from .relatorio import Relatorio
+from .forms import BuscaClienteForm, CidadeForm, ClienteForm, EnderecoForm
 from .models import Cliente
 
 
@@ -86,3 +86,13 @@ def listagem(request):
     
     contexto = {'clientes': clientes, "form":form}
     return render(request, "cliente/listagem.html", contexto )
+
+
+def RelatorioAnivCliente(request):
+    
+    resultado = Relatorio.relatAniversarioCliente()
+    #Cliente.objects.raw(RelatorioAnivCliente)
+    contexto = {"resultado":resultado}
+
+    return render(request,'cliente/relatorio.html',contexto)
+

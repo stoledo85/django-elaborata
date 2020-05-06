@@ -1,0 +1,20 @@
+{% extends 'cliente/base.html' %}
+{% load crispy_forms_tags %}
+{% block conteudo %}
+    <table class="table table-sm">
+    <thead>
+                <tr>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Aniversario</th>
+                </tr>
+            </thead>
+    
+    {%for Resultado in resultados%}
+    <tr>
+        <td>{{Resultado.0}}</td>
+        <td>{{Resultado.1}}</td>
+    </tr>
+    {%endfor%}
+
+    </table>
+{% endblock conteudo %}

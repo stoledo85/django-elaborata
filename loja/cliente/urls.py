@@ -10,4 +10,5 @@ urlpatterns = [
     path('cidade/', views.cidadeView, name="cidade"),
     path("endereco/", views.enderecoView, name="endereco"),
     path("cliente/", views.clienteView, name="cliente"),
+    path("relatorio/", views.RelatorioAnivCliente, name="relatorio"), 
 ]
