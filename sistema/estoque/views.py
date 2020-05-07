@@ -1,13 +1,11 @@
-from django.shortcuts import render
-from django.http import HttpResponse
-
 from datetime import datetime
 
+from django.http import HttpResponse
+from django.shortcuts import render
+
+from .forms import CategoriaForm, MarcaForm, ProdutoForm
 from .models import Produto
 
-from .forms import ProdutoForm
-from .forms import MarcaForm
-from .forms import CategoriaForm
 # Create your views here.
 
 def index(request):
