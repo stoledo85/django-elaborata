@@ -38,7 +38,7 @@ class EnderecoForm(ModelForm):
 class ClienteForm(ModelForm):
     class Meta:
         model = Cliente
-        fields = ['nomeCliente':'Nome', 'numeroCpf':'CPF', 'dataNascimento':'Data de Nascimento', 'codigoEndereco':"Endereço"]
+        fields = ['nomeCliente', 'numeroCpf', 'dataNascimento', 'codigoEndereco']
         
 class BuscaClienteForm(forms.Form):
     nomeCliente = forms.CharField( max_length=45)
